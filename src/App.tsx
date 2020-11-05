@@ -1,23 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { FaBars } from 'react-icons/fa'
+import './App.scss';
 
 function App() {
+  const [showMenu, setShowMenu] = useState(false)
+  const toggleShowMenu = () => setShowMenu(!showMenu)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <nav>
+          <div className="logo">Logo</div>
+          <ul className={`nav-links ${showMenu ? "" : "hide"}`}>
+            <a href="#"><li>First Link</li></a>
+            <a href="#"><li>Second Link</li></a>
+            <a href="#"><li>Third Link</li></a>
+            <a href="#"><li>Fourth Link</li></a>
+            <a href="#"><li>Second Link</li></a>
+          </ul>
+          <div className="menu-toggle" onClick={toggleShowMenu}>
+            <FaBars />
+          </div>
+        </nav>
       </header>
     </div>
   );
